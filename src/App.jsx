@@ -4,7 +4,7 @@ import bgImage from "./assets/bg.jpg";
 function App() {
   return (
     <>
-      <section className="retative flex items-center h-screen w-screen">
+      <section className="retative flex overflow-x-hidden items-center h-screen w-screen">
         <img
           src={bgImage}
           alt="hero_image"
