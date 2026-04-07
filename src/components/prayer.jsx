@@ -11,15 +11,15 @@ const Cities = [
   { ar: "الدقهلية", en: "Dakahlia" },
   { ar: "البحيرة", en: "Beheira" },
   { ar: "الغربية", en: "Gharbia" },
-  { ar: "كفر الشيخ", en: "Kafr El Sheikh" },
+  { ar: "كفر الشيخ", en: "Kafr_El_Sheikh" },
   { ar: "المنوفية", en: "Monufia" },
   { ar: "دمياط", en: "Damietta" },
-  { ar: "بورسعيد", en: "Port Said" },
+  { ar: "بورسعيد", en: "Port_Said" },
   { ar: "الإسماعيلية", en: "Ismailia" },
   { ar: "السويس", en: "Suez" },
-  { ar: "شمال سيناء", en: "North Sinai" },
-  { ar: "جنوب سيناء", en: "South Sinai" },
-  { ar: "بني سويف", en: "Beni Suef" },
+  { ar: "شمال سيناء", en: "North_Sinai" },
+  { ar: "جنوب سيناء", en: "South_Sinai" },
+  { ar: "بني سويف", en: "Beni_Suef" },
   { ar: "الفيوم", en: "Faiyum" },
   { ar: "المنيا", en: "Minya" },
   { ar: "أسيوط", en: "Asyut" },
@@ -45,6 +45,17 @@ function Prayer() {
         SetDataTime(res.data.data.date.gregorian.date);
       });
   }, [City]);
+
+  const fromatTimes = (time) => {
+    if (!time) {
+      return "00:00";
+    }
+    let [hours, minutes] = time.split(":").map(Number);
+    const perd = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+    return `${hours}:${minutes < 10 ? "0" + minutes : minutes} ${perd}`;
+  };
+
   return (
     <section
       className="relative  border-[#d7d7d74e] border-2  z-10 bg-[#332a224e] 
@@ -76,11 +87,11 @@ function Prayer() {
       </div>
       {/* down */}
       <div>
-        <Timings_prayer name="الفجر" time={prayerTimes.Fajr} />
-        <Timings_prayer name="الظهر" time={prayerTimes.Dhuhr} />
-        <Timings_prayer name="العصر" time={prayerTimes.Asr} />
-        <Timings_prayer name="المغرب" time={prayerTimes.Maghrib} />
-        <Timings_prayer name="العشاء" time={prayerTimes.Isha} />
+        <Timings_prayer name="الفجر" time={fromatTimes(prayerTimes.Fajr)} />
+        <Timings_prayer name="الظهر" time={fromatTimes(prayerTimes.Dhuhr)} />
+        <Timings_prayer name="العصر" time={fromatTimes(prayerTimes.Asr)} />
+        <Timings_prayer name="المغرب" time={fromatTimes(prayerTimes.Maghrib)} />
+        <Timings_prayer name="العشاء" time={fromatTimes(prayerTimes.Isha)} />
       </div>
     </section>
   );
