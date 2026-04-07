@@ -59,7 +59,7 @@ function Prayer() {
   return (
     <section
       className="relative  border-[#d7d7d74e] border-2  z-10 bg-[#332a224e] 
-    lg:w-[650px] w-screen h-screen lg:h-auto overflow-hidden px-7 py-6 backdrop-blur-[10px] lg:mr-[15%] "
+    lg:w-[650px] w-screen min-h-screen lg:h-auto overflow-hidden px-7 py-6 backdrop-blur-[10px] lg:mr-[15%] "
     >
       {/* Top  */}
       <div className="gap-18 lg:gap-0 flex justify-between pb-5 border-b-[#d7d7d74e] border-b-2 ">
