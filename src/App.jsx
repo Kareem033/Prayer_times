@@ -1,11 +1,12 @@
 import Prayer from "./components/prayer";
+import bgImage from "./assets/bg.jpg";
 
 function App() {
   return (
     <>
       <section className="retative flex items-center min-h-screen w-screen">
         <img
-          src="bg.jpg"
+          src={bgImage}
           alt="hero_image"
           className="absolute inset-0 h-full w-full object-cover"
         />
